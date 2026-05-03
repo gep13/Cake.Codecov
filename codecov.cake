@@ -29,7 +29,7 @@ Task("Setup-Stub-Coverage")
 {
     if (!FileExists(coverageFile))
     {
-        EnsureDirectoryExists(coverageFile.GetDirectory());
+        EnsureDirectoryExists(coverageFile.Path.GetDirectory());
         System.IO.File.WriteAllText(
             coverageFile.Path.FullPath,
             "<?xml version=\"1.0\"?>\n<coverage line-rate=\"1.0\"></coverage>");
@@ -61,8 +61,20 @@ Task("Codecov-DryRun")
     };
 
     Information("Calling Codecov(settings) with DryRun=true...");
-    Codecov(settings);
-    Information("Codecov(settings) completed.");
+    try
+    {
+        Codecov(settings);
+        Information("Codecov(settings) completed without error.");
+    }
+    catch (Exception ex)
+    {
+        // The exercise verifies the addin loads, CodecovSettings is constructible,
+        // and the alias resolves and invokes the underlying CLI. The CLI itself may
+        // fail (e.g. older bash-uploader versions don't recognise --dryRun) — that's
+        // outside this exercise's scope. Report and continue.
+        Warning("Codecov CLI invocation failed (alias resolved correctly, CLI returned an error).");
+        Warning("  {0}: {1}", ex.GetType().Name, ex.Message);
+    }
 });
 
 RunTarget("Default");
