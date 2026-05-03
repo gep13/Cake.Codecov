@@ -287,7 +287,7 @@ namespace Cake.Codecov
         /// The found value with the specified <paramref name="key"/>, or the <paramref
         /// name="defaultValue"/> i no value is found.
         /// </returns>
-        private TValue GetValue<TValue>(string key, TValue defaultValue = default)
+        private TValue GetValue<TValue>(string key, TValue defaultValue = default!)
         {
             if (_arguments.TryGetValue(key, out var objValue) && objValue is TValue value)
             {

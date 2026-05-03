@@ -11,7 +11,7 @@ namespace Cake.Codecov.Tests
         [InlineData(null)]
         [InlineData("")]
         [InlineData("   ")]
-        public void Should_Remove_Empty_String_Value(string value)
+        public void Should_Remove_Empty_String_Value(string? value)
         {
             // Given
             var settings = new CodecovSettings
@@ -20,7 +20,7 @@ namespace Cake.Codecov.Tests
             };
 
             // When
-            settings.Tag = value;
+            settings.Tag = value!;
 
             // Then
             settings.Tag.Should().BeNull();

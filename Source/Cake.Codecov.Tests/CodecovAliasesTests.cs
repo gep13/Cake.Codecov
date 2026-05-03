@@ -9,7 +9,7 @@ namespace Cake.Codecov.Tests
         [Fact]
         public void Should_Throw_Argument_Null_Exception_If_Context_Is_Nulle()
         {
-            Assert.Throws<ArgumentNullException>(() => CodecovAliases.Codecov(null, new CodecovSettings()));
+            Assert.Throws<ArgumentNullException>(() => CodecovAliases.Codecov(null!, new CodecovSettings()));
         }
 
         [Fact]
@@ -38,7 +38,7 @@ namespace Cake.Codecov.Tests
         {
             var fixture = new CodecovAliasesFixture
             {
-                Settings = null // The settings is unfortunately saved between runs
+                Settings = null! // The settings is unfortunately saved between runs
             };
 
             var files = new[]
@@ -60,7 +60,7 @@ namespace Cake.Codecov.Tests
         {
             var fixture = new CodecovAliasesFixture
             {
-                Settings = null
+                Settings = null!
             };
 
             var files = new[]
@@ -88,7 +88,7 @@ namespace Cake.Codecov.Tests
         {
             var fixture = new CodecovAliasesFixture
             {
-                Settings = null
+                Settings = null!
             };
 
             const string file = "./BUildArtifacts/TestResults/OpenCover.xml";
@@ -105,7 +105,7 @@ namespace Cake.Codecov.Tests
         {
             var fixture = new CodecovAliasesFixture
             {
-                Settings = null
+                Settings = null!
             };
 
             const string file = "./BUildArtifacts/TestResults/OpenCover.xml";

@@ -107,8 +107,13 @@ namespace Cake.Codecov
             }
         }
 
-        private static void AddValue(ProcessArgumentBuilder builder, string key, string value, bool onlyAppendValue = false)
+        private static void AddValue(ProcessArgumentBuilder builder, string key, string? value, bool onlyAppendValue = false)
         {
+            if (value == null)
+            {
+                return;
+            }
+
             if (key.Equals("--file", StringComparison.OrdinalIgnoreCase))
             {
                 value = NormalizePath(value);

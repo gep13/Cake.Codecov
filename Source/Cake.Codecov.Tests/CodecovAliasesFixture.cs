@@ -10,9 +10,9 @@ namespace Cake.Codecov.Tests
     internal class CodecovAliasesFixture : CodecovRunnerFixture
     {
         private readonly ICakeContext _context;
-        public IEnumerable<string> Files { get; set; }
-        public string File { get; set; }
-        public string Token { get; set; }
+        public IEnumerable<string>? Files { get; set; }
+        public string? File { get; set; }
+        public string? Token { get; set; }
 
         public CodecovAliasesFixture()
         {

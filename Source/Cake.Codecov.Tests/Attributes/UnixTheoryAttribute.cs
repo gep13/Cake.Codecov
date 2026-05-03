@@ -5,7 +5,7 @@ namespace Cake.Codecov.Tests.Attributes
 {
     public sealed class UnixTheoryAttribute : TheoryAttribute
     {
-        public UnixTheoryAttribute(string reason = null)
+        public UnixTheoryAttribute(string? reason = null)
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {

@@ -15,7 +15,7 @@ namespace Cake.Codecov.Tests
         public void Should_Throw_If_Settings_Are_Null()
         {
             // Given
-            var fixture = new CodecovRunnerFixture { Settings = null };
+            var fixture = new CodecovRunnerFixture { Settings = null! };
 
             // When
             Action result = () => fixture.Run();

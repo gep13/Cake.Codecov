@@ -6,7 +6,7 @@ namespace Cake.Codecov.Tests
 {
     internal class CodecovRunnerFixture : ToolFixture<CodecovSettings>
     {
-        private readonly IPlatformDetector _platformDetector;
+        private readonly IPlatformDetector? _platformDetector;
 
         public CodecovRunnerFixture()
             : base(RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "codecov.exe" : "codecov")
