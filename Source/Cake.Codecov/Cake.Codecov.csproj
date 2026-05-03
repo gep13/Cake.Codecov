@@ -37,6 +37,10 @@
         </PackageReference>
         <PackageReference Include="Cake.Core" Version="6.0.0" PrivateAssets="All" />
         <PackageReference Include="CakeContrib.Guidelines" Version="1.7.0" PrivateAssets="All" />
+        <PackageReference Include="IDisposableAnalyzers" Version="4.0.8">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
         <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" PrivateAssets="All" />
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
         <PackageReference Include="Roslynator.Analyzers" Version="4.12.2">
